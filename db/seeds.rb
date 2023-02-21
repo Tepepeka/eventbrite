@@ -8,10 +8,11 @@
 
 
 # Destroy_all
-User.destroy_all
+# User.destroy_all
 Event.destroy_all
 Attendance.destroy_all
 
+=begin
 # Users create
 10.times do |i|
     name = Faker::Name.first_name
@@ -25,6 +26,7 @@ Attendance.destroy_all
     puts "*"*(i+1)
     puts "#{i+1} user(s) created"
 end
+=end
 
 
 # Events create
@@ -32,6 +34,7 @@ end
     Event.create(
         start_date:Faker::Date.forward,
         title:Faker::Sports::Basketball.team,
+        description:Faker::Lorem.paragraphs(number: 2),
         duration:rand(1..20)*5,
         price:rand(2..100),
         location:Faker::Address.community

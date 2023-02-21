@@ -10,6 +10,7 @@ gem "faker"
 gem "dotenv-rails", groups: [:development, :test]
 gem "letter_opener", group: :development
 gem "devise"
+gem "sendgrid-ruby"
 
 group :development do
   gem "better_errors"

@@ -15,6 +15,9 @@ class Event < ApplicationRecord
                 presence: true,
                 length: { in: 6..100 }
 
+    validates :description,
+                presence: true
+
     validates :price,
                 presence: true,
                 numericality: { in: 2..100 }
