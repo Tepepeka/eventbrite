@@ -1,0 +1,35 @@
+<nav class="navbar navbar-expand-lg fixed-top position-relative" data-bs-theme="black">
+    <div class="container-fluid">
+    <%=link_to root_path do %>
+        <i class="navbar-brand fa-solid fa-house text-white"></i>
+    <%end%>
+        <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <li class="nav-item">
+                    <%=link_to "Team", "https://img1.picmix.com/output/stamp/normal/9/5/8/4/4859_34369.gif",class:"nav-link active text-white" %>
+                </li>
+                <li class="nav-item">
+                    <%=link_to "Contact", "mailto:tepepeka@protonmail.com", class:"nav-link active text-white" %>
+                </li>
+            </ul>
+
+            <div class="align-self-center">
+                    <% if user_signed_in? %>
+                    #Hi, <%=link_to current_user.email, user_path(current_user)%>
+                    /
+                    <%= link_to "Sign out",  destroy_user_session_path(@user), data: {
+                                                        turbo_method: :delete,
+                                                        turbo_confirm: "Are you sure?"
+                                                        } %>
+                <% else %>
+                <%= link_to "Sign in", new_user_session_path %>
+                /
+                <%=link_to "Sign up", new_user_registration_path %>
+                <% end %>
+            </div>
+        </div>
+    </div>
+</nav>

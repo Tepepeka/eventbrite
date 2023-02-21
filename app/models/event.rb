@@ -2,14 +2,15 @@ class Event < ApplicationRecord
     has_many :appointments
     has_many :users, through: :appointments
 
+=begin
     # Validate
     validates :start_date,
             presence: true
-            #validate: is_past?
+            validate: is_past?
 
     validates :duration,
             presence: true
-            #validate: is_multiple_of_5?
+            validate: is_multiple_of_5?
    
     validates :title,
                 presence: true,
@@ -36,5 +37,6 @@ class Event < ApplicationRecord
     def is_multiple_of_5?
         duration > 0 && duration % 5 == 0
     end
+=end
 
 end

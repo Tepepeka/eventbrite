@@ -4,7 +4,7 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
 
-  after_create :welcome_send
+  #after_create :welcome_send
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
@@ -14,6 +14,6 @@ class User < ApplicationRecord
   has_many :events, through: :appointments
 
   # Validate
-  validates :name, presence: true, uniqueness: true
+  #validates :name, presence: true, uniqueness: true
   validates :email, presence: true, uniqueness: true
 end

@@ -1,0 +1,15 @@
+<h2 class="text-center text-white">All events</h2>
+<div class="row row-cols-1 row-cols-md-3 g-4 mt-1">
+    <% @events.reverse.take(6).each do |event| %>
+        <div class="col">
+            <div class="card h-100 opacity-75">
+                <div class="card-body">
+                    <h5 class="card-title"><%=link_to event.title, event%></h5>
+                    <p class="card-text"><%=event.description %></p>
+                    <blockquote><footer class="blockquote-footer mb-0">On @<cite title="Source Title"><%=event.start_date%></cite></footer></blockquote>
+                    <blockquote><footer class="blockquote-footer mb-0">#<cite title="Source Title"><%=event.duration%>min</cite></footer></blockquote>
+                </div>
+            </div>
+        </div>
+    <% end %>
+</div>
