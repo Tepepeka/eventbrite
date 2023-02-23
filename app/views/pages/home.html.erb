@@ -3,7 +3,7 @@
           <h1 class="jumbotron-heading text-white">NBA TIME</h1>
           <p class="lead text-white">Let's watch basketball together!!</p>
           <p>
-            <a href="/events/new" class="btn btn-success my-2">Create event</a>
+            <%=link_to "Create event", new_event_path, class:"btn btn-success my-2"%>
             <%=link_to "All events", events_path, class:"btn btn-primary my-2"%>
           </p>
         </div>

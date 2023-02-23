@@ -11,6 +11,7 @@ gem "dotenv-rails", groups: [:development, :test]
 gem "letter_opener", group: :development
 gem "devise"
 gem "sendgrid-ruby"
+gem "stripe"
 
 group :development do
   gem "better_errors"

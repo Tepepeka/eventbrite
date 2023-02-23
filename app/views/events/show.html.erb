@@ -5,7 +5,20 @@
         <div class="card-body">
           <h5 class="card-title"><%=@event.title%></h5>
           <p class="card-text"><%=@event.description%></p>
+          <blockquote><footer class="blockquote-footer mb-0">By :<cite title="Source Title"><%=@event.user.email%></cite></footer></blockquote>
+          
+          
+
+          <h5 class="card-title">Attendees<h5>
+          <% @attendances.each do |attendance|%>
+            <% if attendance.event == @event %>
+            <p class="card-text">=> <%=attendance.user.email%></p>
+            <%end%>
+          <%end%>
+          <%=link_to "Go", new_event_attendance_path(@event), class:"btn btn-success"%>
           <%=link_to "Back", events_path, class:"btn btn-danger"%>
+        
+
         </div>
       </div>
     </div>

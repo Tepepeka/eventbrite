@@ -1,12 +1,15 @@
 class EventsController < ApplicationController
 
     before_action :set_event, only: [:show, :edit, :update, :destroy]
+    before_action :authenticate_user!, only: [:new, :create]    
 
     def index
         @events = Event.all
+        
     end
 
     def show
+      @attendances = Attendance.all
     end
 
     def new
@@ -15,6 +18,7 @@ class EventsController < ApplicationController
   
     def create
       @event = Event.new(event_params)
+      @event.user = current_user
       
       if @event.save
         redirect_to @event, notice: "Event was successfully created."
